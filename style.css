@@ -1,0 +1,252 @@
+body{
+    margin: 0;
+}
+
+/*svg{*/
+    /*border: solid red 1px;*/
+/*}*/
+
+#right_right {
+    width: 100%;
+}
+
+#right_right_1 {
+    width: 5%;
+    float: left;
+    margin-left: 10px;
+}
+
+#right_right_2 {
+    width: 70%;
+    float: right;
+    right: 0;
+}
+
+#leftPanel{
+    width: 20%;
+    float: left;
+    height: 100vh;
+    background-color: #37353a;
+    color: white;
+    overflow: auto;
+
+}
+
+.lable1 {
+    font-family: 'Source Sans Pro', serif;
+   margin-top: 6px;
+    padding-left: 10px;
+
+}
+
+#question2{
+    margin-top: 240px;
+    padding-left: 10px;
+    font-family: 'Source Sans Pro', serif;
+    border-left: solid #3ad2a1 3px;
+
+}
+
+.subTitle{
+    font-family: 'Source Sans Pro', serif;
+    padding-left: 10px;
+}
+
+#weight {
+    font-family: 'Source Sans Pro', serif;
+    padding-left: 20px;
+}
+
+#rightPanel{
+    width: 80%;
+    float: right;
+    height: 100vh;
+    border: solid 1px;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    color: white;
+    border: solid 1px white;
+
+}
+
+#recommendation{
+    width: 100%;
+    height: 30%;
+    border: solid 1px ;
+    position: fixed;
+    background-color: #37353a;
+    color: white;
+}
+
+#recommendationContent{
+    width: 54%;
+    float: left;
+    height: 100%;
+    /*border-left: solid 1px white;*/
+    overflow: auto;
+}
+
+#recommendationChart{
+    height: 100%;
+    width: 26%;
+    position: fixed;
+    right:0;
+    border: solid 1px white;
+    overflow: auto;
+    padding-top: 30px;
+}
+
+#stage{
+    width: 3000px;
+    position: absolute;
+    top: 30%;
+    height: 70%;
+    border: solid 1px;
+    overflow: scroll;
+    background-color: #37353a;
+    color: white;
+    border: solid 1px white;
+}
+
+.largeButton{
+    background-color: transparent;
+    border: solid 2px white;
+    border-radius: 10px;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Source Sans Pro', serif;
+    width: 90px;
+    height: 50px;
+}
+
+input[type=number], select {
+    width: 50%;
+    padding: 2px;
+    padding-left: 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: white;
+}
+
+#logo {
+    background-color: #3ad2a1;
+    width: 85%;
+    height: 9%;
+    font-family: 'Pacifico', cursive;
+    font-size: 36px;
+    padding-left: 10px;
+    padding-top: 6px;
+    overflow: auto;
+}
+
+#logoHeading {
+    width: 100%;
+    height: 3%;
+}
+
+#intro {
+    display: table;
+}
+
+#startGame{
+    display: block;
+    background-color: #37353a;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+#startGame:hover,
+#startGame:focus {
+    border: 3px solid #addd8e;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    margin: auto;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(38,41,69,0.4);
+
+}
+
+
+.modal-content {
+    position: relative;
+    background-color: rgba(255,255,255,0.95);
+    margin: auto;
+    padding: 50px;
+    width: 40%;
+    height: 50%;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation: ani_content;
+    animation-duration: 1s;
+
+}
+
+@keyframes ani_content {
+    from {top:-300px; opacity:0}
+    to {top:0px; opacity:1}
+}
+
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    font-size: 28px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#question1 {
+    border-left: solid #3ad2a1 3px;
+}
+
+#button {
+    width: 90%;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+#left_button{
+    width: 50%;
+    float: left;
+}
+
+#right_button{
+    width: 50%;
+    float: right;
+    right: 0;
+}

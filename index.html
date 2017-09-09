@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INFO5100 Project2</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Source+Sans+Pro:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <style>
+        input[type=range] {
+            margin-top: 6px;
+            background: transparent;
+            -webkit-appearance: none;
+            margin-left: 10%;
+            margin-right: 10%;
+            width: 60%;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 2.5px;
+            cursor: pointer;
+            background: rgba(255,255,255,0.5);
+            border-radius: 1.5px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            border: 5px solid rgba(255,255,255,0.5);
+            height: 15px;
+            width: 15px;
+            border-radius: 15px;
+            background: #fff;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -7px;
+        }
+    </style>
+</head>
+
+<body  onload = "introduction()">
+
+<div id="introduction" class="modal">
+    <div class="modal-content">
+        <span class="close"></span>
+        <p id = "intro" style="font-family: 'Open Sans', sans-serif;">
+            <a style=" font-family: 'Pacifico', cursive; font-size: 20px;">Credit Buster</a>
+            <br>
+            Have you ever wonder which credit card, regardless of the attractive advertisements and complicated offer terms, actually provides you with the most cash reward based on your monthly budget?
+            <br>
+            <br>
+            Our recommendation system is dedicated to help you find the ultimate credit card that is perfect for your lifestyle!
+            <br>
+            <br>
+            Just type in your average monthly spending, tell us your opinion on some features of credit card, and see what we think is the best card for you!
+        </p>
+        <br>
+        <button id = "startGame" style="font-family: 'Open Sans', sans-serif;">Let's Begin!</button>
+    </div>
+</div>
+
+<div id="leftPanel">
+    <div id="logoHeading">
+
+    </div>
+    <div id="logo">
+        Credit Buster
+    </div>
+
+
+    <div id = "question1" class = "prompt">
+        <p class="subTitle">
+            Please input your monthly spending:
+        </p>
+    </div>
+
+
+    <div id="right_right">
+
+        <div id="right_right_1">
+            <div class="lable1" style="margin-top: 9px">
+
+                <label for = "grocery">
+                </label>
+                <i class="material-icons">local_grocery_store</i>
+            </div>
+            <div class="lable1">
+                <label for = "dining">
+                </label>
+                <i class="material-icons">local_dining</i>
+            </div>
+            <div class="lable1">
+                <label for = "gas">
+                </label>
+                <i class="material-icons">local_gas_station</i>
+            </div>
+            <div class="lable1">
+                <label for = "airfare">
+                </label>
+                <i class="material-icons">airplanemode_active</i>
+            </div>
+            <div class="lable1">
+                <label for = "hotel">
+                </label>
+                <i class="material-icons">hotel</i>
+            </div>
+            <div class="lable1">
+                <label for = "others">Other：
+                </label>
+            </div>
+
+        </div>
+
+        <div id="right_right_2">
+            $ <input type = "number" id = "grocery" value = "200" onkeyup = "validator(event)"/>  <span id = "groceryValue" style=" font-family: 'Open Sans', sans-serif;"></span>
+            <br>$ <input type = "number" id = "dining" value = "150" onkeyup = "validator(event)"/>  <span id = "diningValue" style=" font-family: 'Open Sans', sans-serif;"></span>
+            <br>$ <input type = "number" id = "gas" value = "90" onkeyup = "validator(event)"/> <span id = "gasValue" style=" font-family: 'Open Sans', sans-serif;"></span>
+            <br>$ <input type = "number" id = "airfare" value = "800" onkeyup = "validator(event)"/>  <span id = "airfareValue" style=" font-family: 'Open Sans', sans-serif;"></span>
+            <br>$ <input type = "number" id = "hotel" value = "500" onkeyup = "validator(event)"/>  <span id = "hotelValue" style=" font-family: 'Open Sans', sans-serif;"></span>
+            <br>$ <input type = "number" id = "others" value = "1000" onkeyup = "validator(event)"/> <span id = "othersValue" style=" font-family: 'Open Sans', sans-serif;"></span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div id = "question2" class = "prompt"><h4>I value these features:</h4></div>
+
+    <div id="weight">
+        <label for = "cashback" >Cash Back: <span id = "weight_cashback">Moderately</span></label>
+
+        <br>
+        <input class = "range" type = "range" id = "cashback" min = "1" max = "5" step = "1"
+               value = "3" list = "ticks" onmouseup = "validator(event)">
+        <br>
+        <label for = "travelreward">Travel Rewards: <span id = "weight_travelreward">Moderately</span></label>
+        <br>
+        <input class = "range" type = "range" id = "travelreward" min = "1" max = "5" step = "1"
+               value = "3" list = "ticks" onmouseup = "validator(event)">
+        <br>
+        <label for = "openbonus">Open Bonus: <span id = "weight_openbonus">Moderately</span></label>
+        <br>
+        <input class = "range" type = "range" id = "openbonus" min = "1" max = "5" step = "1"
+               value = "3" list = "ticks" onmouseup = "validator(event)">
+        <br>
+        <label for = "avgAPR">Average APR: <span id = "weight_avgAPR">Moderately</span></label>
+        <br>
+        <input class = "range" type = "range" id = "avgAPR" min = "1" max = "5" step = "1"
+               value = "3" list = "ticks" onmouseup = "validator(event)">
+        <br>
+        <label for = "annualfee">Annual Fee: <span id = "weight_annualfee">Moderately</span></label>
+        <br>
+        <input class = "range" type = "range" id = "annualfee" min = "1" max = "5" step = "1"
+               value = "3" list = "ticks" onmouseup = "validator(event)">
+        <br>
+        <datalist id = "ticks">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </datalist>
+    </div>
+
+
+    <div id="button">
+        <div id="left_button">
+            <button onclick="changeRandom()" class="largeButton">Pick One Randomly</button>
+        </div>
+
+        <div id="right_button">
+            <button onclick="eidtorChoice()" class="largeButton">Editor's Choice</button>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div id="rightPanel">
+    <div id="recommendation">
+        <div id="recommendationContent">
+        </div>
+
+        <div id="recommendationChart">
+            <div id="chart">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="stage">
+    </div>
+</div>
+</body>
+
+<script>
+
+    var modal = document.getElementById('introduction');
+    var startBtn = document.getElementById("startGame");
+    var span = document.getElementsByClassName("close")[0];
+    var rewardData;
+
+    // code use to create modal is found on W3School - "modal"
+    //https://www.w3schools.com/w3css/w3css_modal.asp
+    function introduction() {
+        modal.style.display = "block";
+    }
+
+    startBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    var height = 430;
+    var width = 20000;
+    var padding = 40;
+
+    var svgCardStage = d3.select("#stage").append("svg")
+        .attr("height", height + 2 * padding)
+        .attr("width", width + 2 * padding)
+        .append("g")
+        .attr("transform", "translate(" + padding + "," + padding + ")");
+
+    var height2 = 180;
+    var width2 = 700;
+    var padding2 = 15;
+
+    var svgrecommendationContent = d3.select("#recommendationContent").append("svg")
+        .attr("height", height2 + 2 * padding2)
+        .attr("width", width2 + 2 * padding2)
+        .append("g")
+        .attr("transform", "translate(" + padding2 + "," + padding2 + ")");
+
+    var cardRawData;
+
+    var monthlySpend = [200, 150, 90, 800, 500, 1000];
+    var spending = [200, 150, 90, 800, 500, 1000];
+    var userWeight = [0.2, 0.2, 0.2, 0.2, 0.2];
+
+    var cardInfo = [{name: "Chase Sapphire", img: "cardImg01", cashBack: "100", openBonus: "80", apr: "30", annualFee: "70", travelReward: "80"}];
+
+    for (var i = 0; i < 49; i++) {
+        cardInfo.push( {name: "Chase Sapphire", img: "cardImg01", cashBack: "100", openBonus: "80", apr: "30", annualFee: "70", travelReward: "80"});
+    }
+
+    var xScale = d3.scaleLinear()
+        .domain([0, 49])
+        .range([padding, width - 250]);
+
+    var scoreScale = d3.scaleLinear()
+        .domain([0, 100])
+        .range([0, 200]);
+
+
+    var parseRow = function(row) {
+        row.dining = Number(row.dining);
+        row.gas = Number(row.gas);
+        row.grocery = Number(row.grocery);
+        row.hotel = Number(row.hotel);
+        row.airline = Number(row.airline);
+        row.other = Number(row.other);
+        row.annualFee = Number(row.annualFee);
+        row.apr = Number(row.apr);
+        row.openBonus = Number(row.openBonus);
+        return row;
+    };
+
+    initBackground();
+
+    d3.queue()
+        .defer(d3.csv, "data.csv", parseRow)
+        .defer(d3.csv, "rewards.csv")
+        .await(function (error, data, reward) {
+
+
+            cardRawData = data;
+
+            rewardData = reward;
+
+            initData();
+            initial();
+
+
+        });
+
+    function initData() {
+        for (var i = 0; i < cardRawData.length; i++) {
+            cardInfo[i].name = cardRawData[i].name;
+            cardInfo[i].img = cardRawData[i].img;
+        }
+    }
+
+    function initial() {
+        calculate();
+        initialCards();
+        barExpand();
+        initRecommendation();
+
+    }
+
+    function initRecommendation() {
+        svgrecommendationContent
+            .append("svg:image")
+            .attr("class", "recommendationImg")
+            .attr('x',50)
+            .attr('y',20)
+            .attr('width', 200)
+            .attr('height', 180)
+            .attr('opacity', 0)
+            .attr("xlink:href","img/"+ cardInfo[rank[0]].img+ ".png")
+            .transition()
+            .duration(1000)
+            .attr('y',10)
+            .attr('opacity', 1);
+
+        svgrecommendationContent
+            .append("text")
+            .attr("class", "recommendationBigTitle")
+            .attr("x",50)
+            .attr("y", 20)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', sans-serif; font-size: 16px;")
+            .text( "| Special Recommendation")
+            .transition()
+            .duration(1000)
+            .attr("opacity", 1);
+
+
+        svgrecommendationContent
+            .append("text")
+            .attr("class", "recommendationTitle")
+            .attr("x",270)
+            .attr("y", 0)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 16px;")
+            .text( "| " + cardInfo[rank[0]].name)
+            .transition()
+            .duration(1000)
+            .attr("x",270)
+            .attr("y", 50)
+            .attr("opacity", 1);
+
+        svgrecommendationContent
+            .append("text")
+            .attr("class", "recommendationText")
+            .attr("x",270)
+            .attr("y", 0)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "Cash Back Score:  " + Math.round(cardInfo[rank[0]].cashBack * 10) / 10)
+            .transition()
+            .duration(1000)
+            .attr("x",270)
+            .attr("y", 75)
+            .attr("opacity", 1);
+
+        svgrecommendationContent
+            .append("text")
+            .attr("class", "recommendationText")
+            .attr("x",270)
+            .attr("y", 0)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "Travel Reward Score:  " + Math.round(cardInfo[rank[0]].travelReward * 10) / 10)
+            .transition()
+            .duration(1000)
+            .attr("x",270)
+            .attr("y",95)
+            .attr("opacity", 1);
+
+        svgrecommendationContent
+            .append("text")
+            .attr("class", "recommendationText")
+            .attr("x",270)
+            .attr("y", 0)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "Open Bonus Score:  " + Math.round(cardInfo[rank[0]].openBonus * 10) / 10)
+            .transition()
+            .duration(1000)
+            .attr("x",270)
+            .attr("y", 115)
+            .attr("opacity", 1);
+
+
+        svgrecommendationContent
+            .append("text")
+            .attr("class", "recommendationText")
+            .attr("x",270)
+            .attr("y", 0)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "APR Rate Score:  " + Math.round(cardInfo[rank[0]].apr * 10) / 10)
+            .transition()
+            .duration(1000)
+            .attr("x",270)
+            .attr("y", 135)
+            .attr("opacity", 1);
+
+
+        svgrecommendationContent
+            .append("text")
+            .attr("class", "recommendationText")
+            .attr("x",270)
+            .attr("y", 0)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "Annual Fee Score:  " + Math.round(cardInfo[rank[0]].annualFee * 10) / 10)
+            .transition()
+            .duration(1000)
+            .attr("x",270)
+            .attr("y",155)
+            .attr("opacity", 1);
+
+
+
+        svgrecommendationContent.append("rect")
+            .attr("class", "recommendationUnderline")
+            .attr("x", 270)
+            .attr("y", 78)
+            .attr("width", 0)
+            .attr("height", 1)
+            .attr("rx", 2)
+            .attr("ry", 2)
+            .attr("opacity", 0.1)
+            .style("stroke", "#78f1d6")
+            .style("stroke-width",1)
+            .transition()
+            .delay(500)
+            .duration(1000)
+            .attr("opacity", 1)
+            .attr("width", 120)
+            .attr("y", 78);
+
+        svgrecommendationContent.append("rect")
+            .attr("class", "recommendationUnderline")
+            .attr("x", 270)
+            .attr("y", 98)
+            .attr("width", 0)
+            .attr("height", 1)
+            .attr("rx", 2)
+            .attr("ry", 2)
+            .attr("opacity", 0.1)
+            .style("stroke", "#ef795b")
+            .style("stroke-width",1)
+            .transition()
+            .delay(500)
+            .duration(1000)
+            .attr("opacity", 1)
+            .attr("width", 120)
+            .attr("y", 98);
+
+        svgrecommendationContent.append("rect")
+            .attr("class", "recommendationUnderline")
+            .attr("x", 270)
+            .attr("y", 118)
+            .attr("width", 0)
+            .attr("height", 1)
+            .attr("rx", 2)
+            .attr("ry", 2)
+            .attr("opacity", 0.1)
+            .style("stroke", "#efe45d")
+            .style("stroke-width",1)
+            .transition()
+            .delay(500)
+            .duration(1000)
+            .attr("opacity", 1)
+            .attr("width", 120)
+            .attr("y", 118);
+
+        svgrecommendationContent.append("rect")
+            .attr("class", "recommendationUnderline")
+            .attr("x", 270)
+            .attr("y", 138)
+            .attr("width", 0)
+            .attr("height", 1)
+            .attr("rx", 2)
+            .attr("ry", 2)
+            .attr("opacity", 0.1)
+            .style("stroke", "#a760ef")
+            .style("stroke-width",1)
+            .transition()
+            .delay(500)
+            .duration(1000)
+            .attr("opacity", 1)
+            .attr("width", 120)
+            .attr("y", 138);
+
+        svgrecommendationContent.append("rect")
+            .attr("class", "recommendationUnderline")
+            .attr("x", 270)
+            .attr("y", 158)
+            .attr("width", 0)
+            .attr("height", 1)
+            .attr("rx", 2)
+            .attr("ry", 2)
+            .attr("opacity", 0.1)
+            .style("stroke", "#DB324D")
+            .style("stroke-width",1)
+            .transition()
+            .delay(500)
+            .duration(1000)
+            .attr("opacity", 1)
+            .attr("width", 120)
+            .attr("y", 158);
+
+
+
+        svgrecommendationContent
+            .append("text")
+            .attr("class", "recommendationText")
+            .attr("x", 420)
+            .attr("y", 100)
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 16px;")
+            .attr("fill","#ffffff")
+            .text("| Special Reward");
+
+        if (rewardData[rank[0]].reward1) {
+
+            svgrecommendationContent
+                .append("text")
+                .attr("class", "recommendationText")
+                .attr("x", 420)
+                .attr("y", 120)
+                .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+                .attr("fill","#ffffff")
+                .text("- " + rewardData[rank[0]].reward1);
+        }
+
+        if (rewardData[rank[0]].reward2) {
+            svgrecommendationContent
+                .append("text")
+                .attr("class", "recommendationText")
+                .attr("x", 420)
+                .attr("y", 140)
+                .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+                .attr("fill","#ffffff")
+                .text("- " + rewardData[rank[0]].reward2);
+        }
+
+        if (rewardData[rank[0]].reward3) {
+            svgrecommendationContent
+                .append("text")
+                .attr("class", "recommendationText")
+                .attr("x", 420)
+                .attr("y", 160)
+                .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+                .attr("fill","#ffffff")
+                .text("- " + rewardData[rank[0]].reward3);
+        }
+
+
+
+
+    }
+
+    function barExpand() {
+        for (var i = 0; i < cardInfo.length; i++) {
+            svgCardStage.append("rect")
+                .attr("class", "scoreBar")
+                .attr("id", "scoreBarA" + i)
+                .attr("x", xScale(i) + 50)
+                .attr("y", 220 - 100)
+                .attr("width", 2)
+                .attr("height", 0)
+                .attr("rx", 2)
+                .attr("ry", 2)
+                .attr("opacity", 0.1)
+                .style("stroke", "#78f1d6")
+                .style("stroke-width",2)
+                .transition()
+                .delay(500)
+                .duration(1000)
+                .attr("opacity", 1)
+                .attr("height", scoreScale(cardInfo[rank[i]].cashBack))
+                .attr("y", 220 -  scoreScale(cardInfo[rank[i]].cashBack));
+
+            svgCardStage.append("rect")
+                .attr("class", "scoreBar")
+                .attr("id", "scoreBarB" + i)
+                .attr("x", xScale(i) + 80)
+                .attr("y", 220 - 100)
+                .attr("width", 2)
+                .attr("height", 0)
+                .attr("rx", 2)
+                .attr("ry", 2)
+                .attr("opacity", 0.1)
+                .style("stroke", "#ef795b")
+                .style("stroke-width",2)
+                .transition()
+                .delay(500)
+                .duration(1000)
+                .attr("opacity", 1)
+                .attr("height", scoreScale(cardInfo[rank[i]].travelReward))
+                .attr("y", 220 -  scoreScale(cardInfo[rank[i]].travelReward));
+
+
+            svgCardStage.append("rect")
+                .attr("class", "scoreBar")
+                .attr("id", "scoreBarC" + i)
+                .attr("x", xScale(i) + 110)
+                .attr("y", 220 - 100)
+                .attr("width", 2)
+                .attr("height", 0)
+                .attr("rx", 2)
+                .attr("ry", 2)
+                .attr("opacity", 0.1)
+                .style("stroke", "#efe45d")
+                .style("stroke-width",2)
+                .transition()
+                .delay(500)
+                .duration(1000)
+                .attr("opacity", 1)
+                .attr("height", scoreScale(cardInfo[rank[i]].openBonus))
+                .attr("y", 220 -  scoreScale(cardInfo[rank[i]].openBonus));
+
+
+            svgCardStage.append("rect")
+                .attr("class", "scoreBar")
+                .attr("id", "scoreBarD" + i)
+                .attr("x", xScale(i) + 140)
+                .attr("y", 220 - 100)
+                .attr("width", 2)
+                .attr("height", 0)
+                .attr("rx", 2)
+                .attr("ry", 2)
+                .attr("opacity", 0.1)
+                .style("stroke", "#a760ef")
+                .style("stroke-width",2)
+                .transition()
+                .delay(500)
+                .duration(1000)
+                .attr("opacity", 1)
+                .attr("height", scoreScale(cardInfo[rank[i]].apr))
+                .attr("y", 220 -  scoreScale(cardInfo[rank[i]].apr));
+
+            svgCardStage.append("rect")
+                .attr("class", "scoreBar")
+                .attr("id", "scoreBarE" + i)
+                .attr("x", xScale(i) + 170)
+                .attr("y", 220 - 100)
+                .attr("width", 2)
+                .attr("height", 0)
+                .attr("rx", 2)
+                .attr("ry", 2)
+                .attr("opacity", 0.1)
+                .style("stroke", "#DB324D")
+                .style("stroke-width",2)
+                .transition()
+                .delay(500)
+                .duration(1000)
+                .attr("opacity", 1)
+                .attr("height", scoreScale(cardInfo[rank[i]].annualFee))
+                .attr("y", 220 -  scoreScale(cardInfo[rank[i]].annualFee));
+
+            svgCardStage
+                .append("text")
+                .attr("class", "scoreText")
+                .attr("x", xScale(i) + 43)
+                .attr("y", 220 - 100)
+                .attr("opacity", 0)
+                .attr("fill","#ffffff")
+                .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+                .text( Math.round(cardInfo[rank[i]].cashBack * 10) / 10)
+                .transition()
+                .delay(500)
+                .duration(1000)
+                .attr("y", 200 -  scoreScale(cardInfo[rank[i]].cashBack))
+                .attr("opacity", 1);
+
+            svgCardStage
+                .append("text")
+                .attr("class", "scoreText")
+                .attr("x", xScale(i) + 73)
+                .attr("y", 220 - 100)
+                .attr("opacity", 0)
+                .attr("fill","#ffffff")
+                .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+                .text( Math.round(cardInfo[rank[i]].travelReward * 10) / 10)
+                .transition()
+                .delay(500)
+                .duration(1000)
+                .attr("y", 200 -  scoreScale(cardInfo[rank[i]].travelReward))
+                .attr("opacity", 1);
+
+            svgCardStage
+                .append("text")
+                .attr("class", "scoreText")
+                .attr("x", xScale(i) + 103)
+                .attr("y", 220 - 100)
+                .attr("opacity", 0)
+                .attr("fill","#ffffff")
+                .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+                .text( Math.round(cardInfo[rank[i]].openBonus * 10) / 10)
+                .transition()
+                .delay(500)
+                .duration(1000)
+                .attr("y", 200 -  scoreScale(cardInfo[rank[i]].openBonus))
+                .attr("opacity", 1);
+
+            svgCardStage
+                .append("text")
+                .attr("class", "scoreText")
+                .attr("x", xScale(i) + 133)
+                .attr("y", 220 - 100)
+                .attr("opacity", 0)
+                .attr("fill","#ffffff")
+                .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+                .text( Math.round(cardInfo[rank[i]].apr * 10) / 10)
+                .transition()
+                .delay(500)
+                .duration(1000)
+                .attr("y", 200 -  scoreScale(cardInfo[rank[i]].apr))
+                .attr("opacity", 1);
+
+            svgCardStage
+                .append("text")
+                .attr("class", "scoreText")
+                .attr("x", xScale(i) + 163)
+                .attr("y", 220 - 100)
+                .attr("opacity", 0)
+                .attr("fill","#ffffff")
+                .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+                .text( Math.round(cardInfo[rank[i]].annualFee * 10) / 10)
+                .transition()
+                .delay(500)
+                .duration(1000)
+                .attr("y", 200 -  scoreScale(cardInfo[rank[i]].annualFee))
+                .attr("opacity", 1);
+
+        }
+
+    }
+
+    function initialCards() {
+
+        for (var i = 0; i < cardInfo.length; i++) {
+
+            svgCardStage
+                .append("svg:image")
+                .attr("class", "card" + rank[i])
+                .attr('x',20)
+                .attr('y',200)
+                .attr('width', 200)
+                .attr('height', 240)
+                .attr("xlink:href","img/"+ cardInfo[rank[i]].img+ ".png")
+                .attr("id", "cardimg" + i)
+                .transition()
+                .duration(1000)
+                .attr('x',xScale(i));
+
+            svgCardStage.append("text")
+                .attr("class", "cardText")
+                .attr("id", "cardText" + rank[i])
+                .attr("x",xScale(i)+ 2)
+                .attr("y", 420)
+                .attr("opacity", 0)
+                .attr("fill","#ffffff")
+                .attr("style","font-family: 'Source Sans Pro', serif; font-size: 16px;")
+                .text( "| " + cardInfo[rank[i]].name)
+                .transition()
+                .duration(1000)
+                .attr("opacity", 1);
+        }
+
+    }
+
+    function calculate() {
+        var diningData = [];
+        var gasData = [];
+        var groceryData = [];
+        var hotelData = [];
+        var airlineData = [];
+        var otherData = [];
+        var annualFeeData = [];
+        var aprData = [];
+        var openBonusData = [];
+
+        var newAnnualFeeData = [];
+        var newAprData = [];
+
+        var annualFeeRanking = [];
+        var aprRanking = [];
+
+        var finalScore = [];
+        var finalRanking = [];
+
+        for (var i = 0; i < cardRawData.length; i++) {
+            diningData.push(0);
+            gasData.push(0);
+            groceryData.push(0);
+            hotelData.push(0);
+            airlineData.push(0);
+            otherData.push(0);
+            annualFeeData.push(0);
+            aprData.push(0);
+            openBonusData.push(0);
+
+            newAnnualFeeData.push(0);
+            newAprData.push(0);
+
+            annualFeeRanking.push(0);
+            aprRanking.push(0);
+            finalRanking.push(0);
+            finalScore.push(0);
+
+        }
+
+        for (var i = 0; i < cardRawData.length; i++) {
+            diningData[i] = cardRawData[i].dining * spending[1];
+            gasData[i] = cardRawData[i].gas * spending[2];
+            groceryData[i] = cardRawData[i].grocery * spending[0];
+            hotelData[i] = cardRawData[i].hotel * spending[4];
+            airlineData[i] = cardRawData[i].airline * spending[3];
+            otherData[i] = cardRawData[i].other * spending[5];
+            annualFeeData[i] = cardRawData[i].annualFee;
+            aprData[i] = cardRawData[i].apr;
+            openBonusData[i] = cardRawData[i].openBonus;
+
+            airlineData[i] =  airlineData[i] + hotelData[i];
+
+            diningData[i] = diningData[i] + gasData[i] + groceryData[i] + otherData[i];
+        }
+
+
+
+        var diningMax = Math.max.apply(Math, diningData);
+        var gasMax = Math.max.apply(Math, gasData);
+        var groceryMax = Math.max.apply(Math, groceryData);
+//    var hotelMax = Math.max.apply(Math, hotelData);
+        var airlineMax = Math.max.apply(Math, airlineData);
+        var otherMax = Math.max.apply(Math, otherData);
+        var annualFeeMax = Math.max.apply(Math, annualFeeData);
+        var aprMax = Math.max.apply(Math, aprData);
+        var openBonusMax = Math.max.apply(Math, openBonusData);
+
+
+        for (var i = 0; i < cardRawData.length; i++) {
+            if (diningMax != 0) {
+                diningData[i] = diningData[i] * 100 / diningMax;
+            } else {
+                diningData[i] = 0;
+            }
+
+            if (airlineMax != 0) {
+                airlineData[i] = airlineData[i] * 100 / airlineMax;
+            } else {
+                airlineData[i] = 0;
+            }
+
+            if (annualFeeMax != 0) {
+                annualFeeData[i] = annualFeeData[i] * 100 / annualFeeMax;
+                newAnnualFeeData[i] = annualFeeData[i]
+            } else {
+                annualFeeData[i] = 0;
+                newAnnualFeeData[i] = 0;
+            }
+
+            if (aprMax != 0) {
+                aprData[i] = aprData[i] * 100 / aprMax;
+                newAprData[i] = aprData[i];
+            } else {
+                aprData[i] = 0;
+                newAprData[i] = 0;
+            }
+
+            if (openBonusMax != 0) {
+                openBonusData[i] = openBonusData[i] * 100 / openBonusMax;
+            } else {
+                openBonusData[i] = 0;
+            }
+        }
+
+        for (var i = 0; i < annualFeeData.length; i++) {
+            var tempMax = Math.max.apply(Math, annualFeeData);
+            var tempIndex = annualFeeData.indexOf(tempMax);
+            annualFeeData[tempIndex] = -5;
+            annualFeeRanking[i] = tempIndex;
+        }
+
+
+        for (var i = annualFeeData.length - 1; i >= 0; i--) {
+            var tempMax = Math.max.apply(Math, newAnnualFeeData);
+            var tempIndex = newAnnualFeeData.indexOf(tempMax);
+            newAnnualFeeData[tempIndex] = -5;
+            annualFeeData[i] = tempMax;
+        }
+
+
+        for (var i = 0; i < aprData.length; i++) {
+            var tempMax = Math.max.apply(Math, aprData);
+            var tempIndex = aprData.indexOf(tempMax);
+            aprData[tempIndex] = -5;
+            aprRanking[i] = tempIndex;
+        }
+
+
+        for (var i = aprData.length - 1; i >= 0; i--) {
+            var tempMax = Math.max.apply(Math, newAprData);
+            var tempIndex = newAprData.indexOf(tempMax);
+            newAprData[tempIndex] = -5;
+            aprData[i] = tempMax;
+        }
+
+
+
+        for (var i = 0; i < cardRawData.length; i++) {
+            cardInfo[i].cashBack = diningData[i];
+            cardInfo[i].travelReward = airlineData[i];
+            cardInfo[i].openBonus = openBonusData[i];
+            cardInfo[i].apr = aprData[i];
+            cardInfo[i].annualFee = annualFeeData[i];
+        }
+
+        for (var i = 0; i < cardRawData.length; i++) {
+            finalScore[i] = userWeight[0] * diningData[i] + userWeight[1] * airlineData[i] + userWeight[4] * annualFeeData[i] + userWeight[3] * aprData[i] + userWeight[2] * openBonusData[i];
+        }
+
+
+        for (var i = 0; i < finalScore.length; i++) {
+            var tempMax = Math.max.apply(Math, finalScore);
+            var tempIndex = finalScore.indexOf(tempMax);
+            finalScore[tempIndex] = -5;
+            finalRanking[i] = tempIndex;
+        }
+
+
+
+
+        rank = finalRanking;
+
+    }
+
+    function initBackground() {
+        for (var i = 0; i < 6; i++) {
+            if (i % 2 == 0) {
+                svgCardStage.append("line")
+                    .style("stroke", "white")
+                    .attr("stroke-width", 2)
+                    .attr("opacity", 0.3)
+                    .style("stroke-dasharray", ("2, 8"))
+                    .attr("x1", 20000)
+                    .attr("y1", 20 + 40 * i)
+                    .attr("x2", 20000)
+                    .attr("y2", 20 + 40 * i)
+                    .transition()
+                    .duration(1400)
+                    .attr("x1", 40)
+                    .attr("y1", 20 + 40 * i)
+                    .attr("x2", 20000)
+                    .attr("y2", 20 + 40 * i);
+            } else {
+                svgCardStage.append("line")
+                    .style("stroke", "white")
+                    .attr("stroke-width", 2)
+                    .attr("opacity", 0.3)
+                    .style("stroke-dasharray", ("2, 8"))
+                    .attr("x1", 40)
+                    .attr("y1", 20 + 40 * i)
+                    .attr("x2", 40)
+                    .attr("y2", 20 + 40 * i)
+                    .transition()
+                    .duration(2000)
+                    .attr("x1", 40)
+                    .attr("y1", 20 + 40 * i)
+                    .attr("x2", 20000)
+                    .attr("y2", 20 + 40 * i);
+            }
+
+        }
+
+        svgCardStage.append("text")
+            .attr("x",10)
+            .attr("y", 50)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "100")
+            .transition()
+            .duration(1000)
+            .attr("opacity", 0.5)
+            .attr("y", 25);
+
+        svgCardStage.append("text")
+            .attr("x",10)
+            .attr("y", 90)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "80")
+            .transition()
+            .duration(1000)
+            .attr("opacity", 0.5)
+            .attr("y", 65);
+
+        svgCardStage.append("text")
+            .attr("x",10)
+            .attr("y", 130)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "60")
+            .transition()
+            .duration(1000)
+            .attr("opacity", 0.5)
+            .attr("y", 105);
+
+        svgCardStage.append("text")
+            .attr("x",10)
+            .attr("y", 170)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "40")
+            .transition()
+            .duration(1000)
+            .attr("opacity", 0.5)
+            .attr("y", 145);
+
+        svgCardStage.append("text")
+            .attr("x",10)
+            .attr("y", 210)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "20")
+            .transition()
+            .duration(1000)
+            .attr("opacity", 0.5)
+            .attr("y", 185);
+
+        svgCardStage.append("text")
+            .attr("x",10)
+            .attr("y", 225)
+            .attr("opacity", 0)
+            .attr("fill","#ffffff")
+            .attr("style","font-family: 'Source Sans Pro', serif; font-size: 12px;")
+            .text( "0")
+            .transition()
+            .duration(1000)
+            .attr("opacity", 0.5);
+
+    }
+
+
+    var weight_level;
+    var display_level;
+    var monthlySpend = [200, 150, 90, 800, 500, 1000];
+    var weightInput = [3, 3, 3, 3, 3 ];
+    var startWeight = [0.2, 0.2, 0.2, 0.2, 0.2];
+    var formatter = d3.format(".2f");
+
+    function validator(event) {
+        var source = event.srcElement || event.target;
+        var usrinput = Number(document.getElementById(source.id).value);
+
+        // update user input of for all weights
+        if (source.id == "cashback" || source.id == "travelreward" ||
+            source.id == "avgAPR" || source.id == "openbonus" ||
+            source.id == "annualfee") {
+            switch (usrinput) {
+                case 1:
+                    weight_level = "Not at all";
+                    break;
+                case 2:
+                    weight_level = "Slightly";
+                    break;
+                case 3:
+                    weight_level = "Moderately";
+                    break;
+                case 4:
+                    weight_level = "Very much";
+                    break;
+                case 5:
+                    weight_level = "Extremely";
+            }
+            display_level = "#weight_" + source.id;
+            userWeight = updateWeight(source.id, usrinput, display_level, weight_level);
+        } else {
+            // update user input of monthly spending
+            display_level = "#" + source.id + "Value";
+            spending = updateSpend(source.id, usrinput, display_level);
+        }
+        dataChange(spending, userWeight);
+
+        chart.data(getData()).render();
+    }
+
+    // update user input of monthly spend, store input for score calculation
+    function updateSpend(sourceId, usrinput, displayLevel) {
+        d3.select(displayLevel).text("Saved");
+        d3.select(sourceId).property("value", usrinput);
+        var index;
+        switch (sourceId) {
+            case "grocery":
+                index = 0;
+                break;
+            case "dining":
+                index = 1;
+                break;
+            case "gas":
+                index = 2;
+                break;
+            case "airfare":
+                index = 3;
+                break;
+            case "hotel":
+                index = 4;
+                break;
+            case "others":
+                index = 5;
+        }
+        monthlySpend[index] = usrinput;
+        return monthlySpend;
+    }
+
+    // update user input of weight of feature, store input for score calculation
+    function updateWeight(sourceId, usrinput, displayLevel, weightLevel) {
+        d3.select(displayLevel).text(weightLevel);
+        d3.select(sourceId).property("value", usrinput);
+        var index;
+        switch (sourceId) {
+            case "cashback":
+                index = 0;
+                break;
+            case "travelreward":
+                index = 1;
+                break;
+            case "openbonus":
+                index = 2;
+                break;
+            case "avgAPR":
+                index = 3;
+                break;
+            case "annualfee":
+                index = 4;
+        }
+        weightInput[index] = usrinput;
+
+        var sum = d3.sum(weightInput);
+        for (i = 0; i < 5; i++) {
+            startWeight[i] = Number(formatter(weightInput[i] / sum));
+        }
+        return startWeight;
+    }
+
+    function dataChange() {
+        calculate();
+        changeOrder();
+    }
+
+    function changeOrder() {
+        BarCollapse();
+        textCollapse();
+        changeCardOrder();
+        textExpand();
+        barExpand();
+        changeRecommendation();
+    }
+
+    function BarCollapse() {
+        d3.selectAll(".scoreBar")
+            .transition()
+            .duration(200)
+            .attr("height", 0);
+
+        d3.selectAll(".scoreBar")
+            .transition()
+            .delay(200)
+            .remove()
+
+        d3.selectAll(".scoreText")
+            .transition()
+            .duration(200)
+            .attr("y", 0)
+            .attr("opacity", 0);
+
+        d3.selectAll(".scoreText")
+            .transition()
+            .delay(200)
+            .remove()
+
+
+    }
+
+    function textCollapse() {
+        d3.selectAll(".cardText")
+            .transition()
+            .duration(200)
+            .attr("opacity", 0);
+
+
+    }
+
+    function changeCardOrder() {
+        for (var i = 0; i < cardInfo.length; i++) {
+            d3.selectAll(".card" + i)
+                .transition()
+                .duration(1000)
+                .attr('x', xScale(rank.indexOf(i)));
+        }
+    }
+
+    function textExpand() {
+        for (var i = 0; i < cardInfo.length; i++) {
+            d3.selectAll("#cardText" + i)
+                .transition()
+                .delay(200)
+                .duration(500)
+                .attr('x', xScale(rank.indexOf(i)) + 2)
+                .transition()
+                .duration(1000)
+                .attr("opacity", 1);
+        }
+    }
+
+    function changeRecommendation() {
+        removeRecommendationCard();
+        removeRecommendationText();
+        removeRecommendationTitle();
+        collapseUnderlying();
+        initRecommendation();
+    }
+
+    function removeRecommendationCard() {
+        d3.selectAll(".recommendationImg")
+            .transition()
+            .duration(200)
+            .attr("opacity", 0);
+
+        d3.selectAll(".recommendationImg")
+            .transition()
+            .delay(200)
+            .remove()
+    }
+
+    function removeRecommendationText() {
+        d3.selectAll(".recommendationText")
+            .transition()
+            .duration(200)
+            .attr("opacity", 0);
+
+        d3.selectAll(".recommendationText")
+            .transition()
+            .delay(200)
+            .remove()
+    }
+
+    function removeRecommendationTitle() {
+        d3.selectAll(".recommendationTitle")
+            .transition()
+            .duration(200)
+            .attr("opacity", 0);
+
+        d3.selectAll(".recommendationTitle")
+            .transition()
+            .delay(200)
+            .remove()
+    }
+
+    function collapseUnderlying() {
+        d3.selectAll(".recommendationUnderline")
+            .transition()
+            .duration(200)
+            .attr("width", 0);
+    }
+
+</script>
+
+<script>
+
+for (var i = 0; i < cardInfo.length; i++) {
+      d3.selectAll("#cardimg" + i)
+        .on("mouseover", function() {console.log("hahah");});
+ }
+
+ // function handleMouseover(d, i){
+ //   console.log(d3.mouse(this));
+ // }
+
+</script>
+
+<script>
+
+    var getData = function(){
+        var size = 5;
+
+        var data = {};
+        var text = "";
+
+        data["Cash Back"] = userWeight[0];
+        data["Travel Reward"] = userWeight[1];
+        data["Open Bonus"] = userWeight[2];
+        data["APR Rate"] = userWeight[3];
+        data["Annual Fee"] = userWeight[4];
+
+
+        d3.select("#data").html(text);
+
+        return data;
+    };
+
+
+    var chart = donut()
+        .$el(d3.select("#chart"))
+        .data(getData())
+        .render();
+
+
+    d3.select("#refresh").on("click", function(){
+        chart.data(getData()).render();
+    });
+
+    // code to create donut chart is found from Nattawat Nonsung's block
+    // http://bl.ocks.org/nnattawat/9368297
+    function donut(){
+        // Default settings
+
+        var $el = d3.select("#recommendationChart");
+        var data = {};
+        // var showTitle = true;
+        var width = 350,
+            height = 160,
+            radius = Math.min(width, height) / 2;
+
+        var currentVal;
+        var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+
+        var pie = d3.pie()
+            .sort(null)
+            .value(function(d) { return d.value; });
+
+        var svg, g, arc;
+
+        var object = {};
+
+        // Method for render/refresh graph
+        object.render = function(){
+            if(!svg){
+                arc = d3.arc()
+                    .outerRadius(radius)
+                    .innerRadius(radius - (radius/2.5));
+
+                svg = $el.append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .append("g")
+                    .attr("transform", "translate(" + (width / 2 + 80) + "," + height / 2 + ")");
+
+                g = svg.selectAll(".arc")
+                    .data(pie(d3.entries(data)))
+                    .enter().append("g")
+                    .attr("class", "arc");
+
+
+                svg.append("text")
+                    .attr("x", -230 )
+                    .attr("y", -65 )
+                    .attr("style","font-family: 'Source Sans Pro', serif;")
+                    .style("fill", "white")
+                    .text("| User Preference Weight");
+
+
+                svg.append("text")
+                    .attr("x", -230 )
+                    .attr("y", -40 )
+                    .attr("style","font-family: 'Source Sans Pro', serif;")
+                    .style("fill", "white")
+                    .text("Cash Back");
+
+                svg.append("text")
+                    .attr("x", -230 )
+                    .attr("y", -15 )
+                    .attr("style","font-family: 'Source Sans Pro', serif;")
+                    .style("fill", "white")
+                    .text("Travel Reward");
+
+                svg.append("text")
+                    .attr("x", -230 )
+                    .attr("y", 10 )
+                    .attr("style","font-family: 'Source Sans Pro', serif;")
+                    .style("fill", "white")
+                    .text("Open Bonus");
+
+                svg.append("text")
+                    .attr("x", -230 )
+                    .attr("y", 35 )
+                    .attr("style","font-family: 'Source Sans Pro', serif;")
+                    .style("fill", "white")
+                    .text("APR Rate");
+
+                svg.append("text")
+                    .attr("x", -230 )
+                    .attr("y", 60 )
+                    .attr("style","font-family: 'Source Sans Pro', serif;")
+                    .style("fill", "white")
+                    .text("Annual Fee");
+
+
+
+                svg.append("rect")
+
+                    .attr("x", -230)
+                    .attr("y", -35)
+                    .attr("width", 95)
+                    .attr("height", 1)
+                    .attr("rx", 2)
+                    .attr("ry", 2)
+                    .attr("opacity", 1)
+                    .style("stroke", "#78f1d6")
+                    .style("stroke-width",1);
+
+                svg.append("rect")
+
+                    .attr("x", -230)
+                    .attr("y", -10)
+                    .attr("width", 95)
+                    .attr("height", 1)
+                    .attr("rx", 2)
+                    .attr("ry", 2)
+                    .attr("opacity", 1)
+                    .style("stroke", "#a760ef")
+                    .style("stroke-width",1);
+
+                svg.append("rect")
+
+                    .attr("x", -230)
+                    .attr("y", 15)
+                    .attr("width", 95)
+                    .attr("height", 1)
+                    .attr("rx", 2)
+                    .attr("ry", 2)
+                    .attr("opacity", 1)
+                    .style("stroke", "#ef795b")
+                    .style("stroke-width",1);
+
+                svg.append("rect")
+
+                    .attr("x", -230)
+                    .attr("y", 40)
+                    .attr("width", 95)
+                    .attr("height", 1)
+                    .attr("rx", 2)
+                    .attr("ry", 2)
+                    .attr("opacity", 1)
+                    .style("stroke", "#efe45d")
+                    .style("stroke-width",1);
+
+                svg.append("rect")
+
+                    .attr("x", -230)
+                    .attr("y", 65)
+                    .attr("width", 95)
+                    .attr("height", 1)
+                    .attr("rx", 2)
+                    .attr("ry", 2)
+                    .attr("opacity", 1)
+                    .style("stroke", "#DB324D")
+                    .style("stroke-width",1);
+
+
+
+
+                g.append("path")
+                // Attach current value to g so that we can use it for animation
+                    .each(function(d) { this._current = d; })
+                    .attr("d", arc)
+                    .style("fill", function(d) {
+
+                        if (d.data.key == "Cash Back") {
+                            return "#78f1d6";
+                        } else if (d.data.key == "Travel Reward") {
+                            return "#ef795b";
+                        } else if (d.data.key == "Open Bonus") {
+                            return "#efe45d";
+
+                        } else if (d.data.key == "APR Rate") {
+                            return "#a760ef";
+
+                        } else if (d.data.key == "Annual Fee") {
+                            return "#DB324D";
+                        }
+
+                       });
+//                g.append("text")
+//                    .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+//                    .attr("class", "pieText")
+//                    .attr("dy", ".35em")
+//                    .style("text-anchor", "middle");
+
+
+
+                g.select("text").text(function(d) { return d.data.key; });
+
+                svg.append("text")
+                    .datum(data)
+                    .attr("x", -18 )
+                    .attr("y", 0 + radius/10 )
+                    .attr("class", "text-tooltip")
+                    .style("text-anchor", "middle")
+                    .attr("font-weight", "bold")
+                    .attr("style","font-family: 'Source Sans Pro', serif;")
+                    .style("font-size", radius/3+"px");
+
+
+
+                g.on("mouseover", function(obj){
+
+                    svg.select("text.text-tooltip")
+                        .attr("fill", function(d) {
+                            if (obj.data.key == "Cash Back") {
+                                return "#78f1d6";
+                            } else if (obj.data.key == "Travel Reward") {
+                                return "#ef795b";
+                            } else if (obj.data.key == "Open Bonus") {
+                                return "#efe45d";
+
+                            } else if (obj.data.key == "APR Rate") {
+                                return "#a760ef";
+
+                            } else if (obj.data.key == "Annual Fee") {
+                                return "#DB324D";
+                            }
+                        })
+                        .text(function(d){
+                            return d[obj.data.key];
+                        });
+                });
+
+                g.on("mouseout", function(obj){
+                    svg.select("text.text-tooltip").text("");
+                });
+
+            }else{
+                g.data(pie(d3.entries(data))).exit().remove();
+
+                g.select("path")
+                    .transition().duration(200)
+                    .attrTween("d", function(a){
+                        var i = d3.interpolate(this._current, a);
+                        this._current = i(0);
+                        return function(t) {
+                            return arc(i(t));
+                        };
+                    })
+
+                g.select("text")
+                    .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; });
+
+                svg.select("text.text-tooltip").datum(data);
+            }
+            return object;
+        };
+
+        // Getter and setter methods
+        object.data = function(value){
+            if (!arguments.length) return data;
+            data = value;
+            return object;
+        };
+
+        object.$el = function(value){
+            if (!arguments.length) return $el;
+            $el = value;
+            return object;
+        };
+
+        object.width = function(value){
+            if (!arguments.length) return width;
+            width = value;
+            radius = Math.min(width, height) / 2;
+            return object;
+        };
+
+        object.height = function(value){
+            if (!arguments.length) return height;
+            height = value;
+            radius = Math.min(width, height) / 2;
+            return object;
+        };
+
+        return object;
+    };
+
+
+
+
+    function changeRandom() {
+        rank = rank.sort(function(a, b){return 0.5 - Math.random()});
+        changeOrder();
+    }
+
+    function eidtorChoice() {
+        for (var i = 0; i < 50; i++) {
+            rank[i] = i;
+        }
+        rank[36] = 0;
+        rank[0] = 36;
+        changeOrder();
+    }
+
+</script>
+
+
+
+
+
+
+
+</html>

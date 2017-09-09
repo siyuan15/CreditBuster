@@ -1,0 +1,51 @@
+name,grocery,dining,gas,hotel,airline,other,openBonus,apr,annualFee,img
+Bank of America Cash Rewards,0.02,0.01,0.03,0.01,0.01,0.01,100,0.1874,0,cardImg01
+BankAmericard Travel Rewards,0.015,0.015,0.015,0.015,0.015,0.015,200,0.1974,0,cardImg02
+BankAmericard,0,0,0,0,0,0,0,0.1674,0,cardImg03
+MLB,0.02,0.01,0.03,0.01,0.01,0.01,100,0.1874,0,cardImg04
+Citi Double Cash Card,0.02,0.02,0.02,0.02,0.02,0.02,0,0.1924,0,cardImg05
+Citi DIAMOND PREFERRED,0,0,0,0,0,0,0,0.1824,0,cardImg06
+Citi Hilton Honors Visa Signature Card,0.012,0.008,0.012,0.024,0.008,0.008,160,0.1799,0,cardImg07
+Citi Simplicity Card,0,0,0,0,0,0,0,0.1924,0,cardImg08
+Citi AAdvantage Platinum Select World Elite Mastercard,0.015,0.015,0.015,0.015,0.03,0.015,450,0.2049,95,cardImg09
+ Capital One Quicksilver Rewards,0.015,0.015,0.015,0.015,0.015,0.015,100,0.1874,0,cardImg10
+Capital One QuicksilverOne Rewards,0.015,0.015,0.015,0.015,0.015,0.015,0,0.2499,39,cardImg11
+Capital One Premier Dining Rewards,0.02,0.03,0.01,0.01,0.01,0.01,100,0.1974,0,cardImg12
+Capital One Venture Rewards,0.02,0.02,0.02,0.02,0.02,0.02,400,0.1874,59,cardImg13
+Capital One VentureOne Rewards,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,200,0.1774,0,cardImg14
+Capital One Platinum,0,0,0,0,0,0,0,0.2499,0,cardImg15
+Capital One Journey Student Rewards,0.0125,0.0125,0.0125,0.0125,0.0125,0.0125,0,0.2074,0,cardImg16
+American Express Amex EveryDay Credit Card,0.024,0.012,0.012,0.012,0.012,0.012,100,0.18774,0,cardImg17
+American Express Amex EveryDay Preferred Credit Card,0.045,0.015,0.03,0.015,0.015,0.015,150,0.1874,95,cardImg18
+Blue Cash Everyday Card from American Express,0.03,0.1,0.02,0.01,0.01,0.01,100,0.1874,0,cardImg19
+Blue Cash Preferred Card from American Express,0.06,0.1,0.03,0.01,0.01,0.01,150,0.1874,95,cardImg20
+American Express Gold Delta SkyMiles Credit Card,0.013,0.013,0.013,0.013,0.026,0.013,390,0.2099,95,cardImg21
+American Express Platinum Delta SkyMiles Credit Card,0.013,0.013,0.013,0.013,0.026,0.013,505,0.1799,195,cardImg22
+Delta Reserve Credit Card from American Express,0.013,0.013,0.013,0.013,0.026,0.013,260,0.2099,450,cardImg23
+Hilton Honors Card from American Express,0.02,0.02,0.02,0.028,0.012,0.02,320,0.1799,0,cardImg24
+Hilton Honors Surpass Card from American Express,0.024,0.024,0.024,0.048,0.012,0.012,400,0.1799,75,cardImg25
+Starwood Preferred Guest Credit Card,0.02,0.02,0.02,0.088,0.022,0.02,550,0.1799,95,cardImg26
+American Express Blue from American Express Card,0.017,0.017,0.017,0.017,0.017,0.017,0,0.1899,0,cardImg27
+American Express Blue Sky from American Express Card,0.017,0.017,0.017,0.017,0.017,0.017,0,0.2099,0,cardImg28
+Blue Cash Card from American Express,0.05,0.01,0.05,0.01,0.01,0.01,0,0.2099,0,cardImg29
+Plenti Credit Card from Amex,0.03,0.02,0.01,0.01,0.01,0.01,50,0.2074,0,cardImg30
+Discover it card,0.01,0.01,0.01,0.01,0.05,0.05,0,0.1774,0,cardImg31
+Discover it Gas and Restaurant Card,0.01,0.02,0.02,0.01,0.01,0.01,0,0.1774,0,cardImg32
+Discover it Miles Credit Card,0.015,0.015,0.015,0.015,0.015,0.015,0,0.1774,0,cardImg33
+Discover it Chrome Students Card,0.01,0.02,0.02,0.01,0.01,0.01,0,0.1824,0,cardImg34
+Discover it 5% Rewards Card for College Students,0.01,0.05,0.01,0.01,0.01,0.01,100,0.1824,0,cardImg35
+Chase freedom,0.015,0.015,0.015,0.015,0.015,0.015,150,0.19865,0,cardImg36
+Chase Sapphire (preferred),0.01,0.02,0.01,0.02,0.02,0.01,625,0.1999,95,cardImg37
+Chase Sapphire (reserve),0.01,0.03,0.01,0.03,0.03,0.01,750,0.1999,450,cardImg38
+Chase Marriott Rewards Premier credit card,0.01,0.02,0.01,0.05,0.02,0.01,500,0.1999,85,cardImg39
+Chase Southwest Rapid Rewards Plus Credit Card,0.01,0.01,0.01,0.01,0.02,0.01,960,0.1999,69,cardImg40
+Chase Disney Premier Visa Card,0.02,0.02,0.02,0.01,0.01,0.01,200,0.1649,49,cardImg41
+Chase MileagePlus club,0.015,0.015,0.015,0.015,0.02,0.015,100,0.1999,450,cardImg42
+USbank Visa Signature card,0.01,0.02,0.01,0.01,0.01,0.01,100,0.1924,0,cardImg43
+ USbank Cash 365 American Express Card,0.015,0.015,0.015,0.015,0.015,0.015,25,0.1924,0,cardImg44
+ USbank FlexPerks Travel Rewards Visa Signature Card,0.02,0.01,0.01,0.01,0.01,0.01,400,0.1924,49,cardImg45
+ USbank FlexPerks Gold American Express Card,0.01,0.03,0.02,0.01,0.02,0.01,25,0.1924,85,cardImg46
+Wells Fargo Cash Wise Visa Card,0.015,0.015,0.015,0.015,0.015,0.015,150,0.1974,0,cardImg47
+Wells Fargo Cash Back College Card,0.01,0.01,0.01,0.01,0.01,0.01,70,0.169,0,cardImg48
+Wells Fargo Propel American Express Card,0.01,0.02,0.03,0.01,0.01,0.01,0,0.1974,0,cardImg49
+Wells Fargo Visa Signature card,0.01,0.01,0.01,0.01,0.01,0.01,270,0.1982,0,cardImg50
